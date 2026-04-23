@@ -10,7 +10,7 @@
 
 | # | Phase | Goal | Requirements | Success Criteria |
 |---|-------|------|--------------|------------------|
-| 1 | 项目脚手架与运行契约 | 建立 CLI 入口、`run_id` 规则和工件目录结构 | ORCH-01, ORCH-02 | 3 |
+| 1 | 项目脚手架与运行契约 | 建立总控 skill 入口、`run_id` 规则和工件目录结构 | ORCH-01, ORCH-02 | 3 |
 | 2 | 点时点数据快照管线 | 建立数据适配器、标准快照模型和缓存 | DATA-01, DATA-02, DATA-03, DATA-04 | 4 |
 | 3 | AI 决策契约与策略大脑 | 建立提示词版本化、Gemini 调用与 JSON 校验 | AI-01, AI-02, AI-03 | 4 |
 | 4 | 回测仿真内核 | 建立调仓执行、资金账本和净值计算 | SIM-01, SIM-02, SIM-03 | 4 |
@@ -27,9 +27,9 @@
 **UI hint:** no
 
 **Success criteria**
-1. CLI 暴露 `backtest run` 的核心参数入口。
-2. 每次运行都会生成唯一 `run_id` 和工件目录。
-3. 用户可以通过 `run_id` 定位一次既有运行并准备重放。
+1. `backtest-orchestrator` 作为 canonical entry 接收 `symbol`、`start`、`end`、`cadence` 和 `strategy_profile`，任何未来 wrapper 都只能委派到它。
+2. 每次运行都会生成唯一 `run_id` 和固定 run container 工件目录。
+3. 用户可以通过 `run_id` 定位一次既有运行，并根据状态准备 `resume` 或 `replay`。
 
 ### Phase 2: 点时点数据快照管线
 
