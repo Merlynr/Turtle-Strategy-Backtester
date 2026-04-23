@@ -3,20 +3,20 @@
 **Initialized:** 2026-04-23
 **Current milestone:** M1 - 单标的可复现 AI 回测闭环
 **Current phase:** Phase 1 - 项目脚手架与运行契约
-**Next command:** /gsd-plan-phase 1
+**Next command:** /gsd-execute-phase 1
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-04-23)
 
 **Core value:** 在任意历史时点，系统都能基于当时可见的数据，产出可校验、可复现、可回放的 AI 决策与回测结果。  
-**Current focus:** Phase 1 的上下文已经收敛，下一步进入计划阶段，把总控 skill、run 生命周期和工件目录契约拆成可执行计划。
+**Current focus:** Phase 1 已完成计划拆解，共 3 个 plans、2 个 waves。下一步执行总控 skill 拓扑、run 生命周期契约和工件目录契约。
 
 ## Phase Status
 
 | Phase | Name | Status | Notes |
 |-------|------|--------|-------|
-| 1 | 项目脚手架与运行契约 | Context Ready | 已生成 `01-CONTEXT.md`，等待计划拆解 |
+| 1 | 项目脚手架与运行契约 | Planned | 已生成 `01-CONTEXT.md` 与 3 个 `PLAN.md`，可进入执行 |
 | 2 | 点时点数据快照管线 | Pending | 依赖 Phase 1 的运行目录与配置契约 |
 | 3 | AI 决策契约与策略大脑 | Pending | 依赖标准快照模型 |
 | 4 | 回测仿真内核 | Pending | 依赖 JSON 决策对象 |
@@ -32,5 +32,6 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 
 ## Immediate Next Step
 
-1. 读取 `.planning/phases/01-run-contract/01-CONTEXT.md`。
-2. 运行 `/gsd-plan-phase 1`，把总控 skill、run 契约和工件结构拆成执行计划。
+1. 执行 `.planning/phases/01-run-contract/01-01-PLAN.md` 与 `01-02-PLAN.md`（Wave 1）。
+2. 完成后执行 `01-03-PLAN.md`（Wave 2）。
+3. 运行 `/gsd-execute-phase 1` 进入正式执行。
