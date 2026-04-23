@@ -1,0 +1,8 @@
+{
+  "commission_rate": "0.001",
+  "initial_capital": "100000",
+  "lot_size": 100,
+  "position_limit": "1",
+  "slippage_bps": "10",
+  "slippage_rate": "0.001"
+}

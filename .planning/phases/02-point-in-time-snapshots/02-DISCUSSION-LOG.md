@@ -57,7 +57,7 @@
 | trust operator | 完全信任操作者输入，不做校验 | |
 
 **User's choice:** strict validate（防止未来函数污染后续决策与回测）
-**Notes:** 违例写入 `{artifact_root}/meta/validation.json`，不能静默修复。
+**Notes:** 违例写入 `{artifact_root}/meta/snapshot-validation.json`，不能静默修复。
 
 ---
 

@@ -20,7 +20,7 @@ score: 4/4 must-haves verified
 | 1 | Manual snapshot input is the primary Phase 2 path and does not require external data-source credentials | VERIFIED | `docs/contracts/point-in-time-snapshot.md` contains `provider=manual`; `.agents/skills/data-node/SKILL.md` accepts `provider=manual` |
 | 2 | Each rebalance point is anchored by `asof_date` and stored as a normalized snapshot file | VERIFIED | `docs/contracts/point-in-time-snapshot.md` contains `snapshot_{asof_date}.json` and `asof_date` |
 | 3 | Point-in-time validation is a hard gate and blocks post-dated candles | VERIFIED | `docs/contracts/snapshot-validation.md` contains `candle.date <= asof_date` and `blocked` |
-| 4 | Run container metadata stores raw manual inputs and validation output for auditability | VERIFIED | `docs/contracts/run-artifact-layout.md` contains `meta/manual-inputs/` and `meta/validation.json` |
+| 4 | Run container metadata stores raw manual inputs and validation output for auditability | VERIFIED | `docs/contracts/run-artifact-layout.md` contains `meta/manual-inputs/` and `meta/snapshot-validation.json` |
 
 **Score:** 4/4 truths verified
 
@@ -29,8 +29,8 @@ score: 4/4 must-haves verified
 | Artifact | Expected | Status | Details |
 |----------|----------|--------|---------|
 | `docs/contracts/point-in-time-snapshot.md` | Manual snapshot contract | VERIFIED | Defines `provider=manual`, raw `prices.csv`, and normalized snapshot shape |
-| `docs/contracts/snapshot-validation.md` | Validation and reuse rules | VERIFIED | Defines `candle.date <= asof_date`, `meta/validation.json`, and cache reuse |
-| `docs/contracts/run-artifact-layout.md` | Metadata subtree rules | VERIFIED | Includes `meta/manual-inputs/` and `meta/validation.json` |
+| `docs/contracts/snapshot-validation.md` | Validation and reuse rules | VERIFIED | Defines `candle.date <= asof_date`, `meta/snapshot-validation.json`, and cache reuse |
+| `docs/contracts/run-artifact-layout.md` | Metadata subtree rules | VERIFIED | Includes `meta/manual-inputs/`, `meta/snapshot-validation.json`, and `meta/validation.json` |
 | `docs/examples/point-in-time-snapshot-example.md` | Operator-facing input example | VERIFIED | Shows `prices.csv`, `snapshot_2026-04-23.json`, and rejected candle example |
 
 **Artifacts:** 4/4 verified

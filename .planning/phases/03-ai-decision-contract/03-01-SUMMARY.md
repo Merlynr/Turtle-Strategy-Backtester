@@ -1,5 +1,9 @@
 ---
 phase: 03-ai-decision-contract
+requirements_completed:
+  - AI-01
+  - AI-02
+  - AI-03
 plan: 01
 subsystem: ai-contracts
 tags:

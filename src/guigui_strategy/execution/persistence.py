@@ -46,9 +46,6 @@ def persist_execution_result(artifact_root: Path, result: ExecutionResult) -> No
     (artifact_root / "snapshots").mkdir(parents=True, exist_ok=True)
     (artifact_root / "decisions").mkdir(parents=True, exist_ok=True)
     (artifact_root / "reports").mkdir(parents=True, exist_ok=True)
-    report_path = artifact_root / "report.md"
-    if not report_path.exists():
-        _atomic_write_text(report_path, "")
 
     _write_json(artifact_root / "meta" / "execution-config.json", result.config.to_record())
     _write_jsonl(artifact_root / "execution" / "ledger.jsonl", result.ledger_rows)

@@ -30,7 +30,7 @@
 - **D-08:** 允许操作者覆盖默认调仓时点：在 run 的 `meta/` 中显式提供 `asof_dates[]`，则以该列表为准。
 
 ### 点时点约束（避免未来函数）
-- **D-09:** 快照内任何蜡烛数据必须满足 `candle.date <= asof_date`；若检测到违例，必须把违例记录写入 `{artifact_root}/meta/validation.json`，并把该快照标记为不可用（不允许静默吞掉）。
+- **D-09:** 快照内任何蜡烛数据必须满足 `candle.date <= asof_date`；若检测到违例，必须把违例记录写入 `{artifact_root}/meta/snapshot-validation.json`，并把该快照标记为不可用（不允许静默吞掉）。
 - **D-10:** 快照必须显式记录本次快照使用的价格窗口范围（例如 `window_start`/`window_end`）与构建时间 `built_at`，以支持回放。
 
 ### 指标与特征（features）

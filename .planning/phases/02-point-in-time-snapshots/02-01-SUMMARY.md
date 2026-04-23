@@ -1,3 +1,11 @@
+---
+phase: 02-point-in-time-snapshots
+requirements_completed:
+  - DATA-01
+  - DATA-02
+  - DATA-03
+  - DATA-04
+---
 # Phase 2: 点时点数据快照管线 - Summary
 
 **Plan:** 02-01

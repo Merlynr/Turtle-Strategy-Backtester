@@ -1,101 +1,21 @@
 # Requirements: 龟龟策略
 
-**Defined:** 2026-04-23
-**Core Value:** 在任意历史时点，系统都能基于当时可见的数据，产出可校验、可复现、可回放的 AI 决策与回测结果。
+**Status:** v1.0 archived
 
-## v1 Requirements
+## Archived Milestone
 
-### Orchestration
+- v1.0 requirements have been archived to [`.planning/milestones/v1.0-REQUIREMENTS.md`](./milestones/v1.0-REQUIREMENTS.md)
 
-- [x] **ORCH-01**: 策略研究者可以通过 `backtest-orchestrator` 发起一次回测，并显式提供 `symbol`、`start`、`end`、`cadence` 和 `strategy_profile`；如果未来存在 CLI 或其他 wrapper，它必须委派到同一个总控 skill
-- [x] **ORCH-02**: 策略研究者可以为一次回测生成唯一 `run_id`，并按 `run_id` 重放或复核该次运行
+## Next Milestone
 
-### Data
+- Define the next milestone requirements with `$gsd-new-milestone`
 
-- [x] **DATA-01**: 策略研究者可以在每个调仓时点获取对应标的的历史行情快照
-- [x] **DATA-02**: 策略研究者可以在每个调仓时点获取“当时已披露”的财务或基本面快照
-- [x] **DATA-03**: 策略研究者可以将标准化快照缓存到本地，并在重复运行时复用
-- [x] **DATA-04**: 策略研究者可以查看每份快照的数据源、抓取时间、参数和版本信息
+## Backlog Ideas
 
-### AI Decision
-
-- [x] **AI-01**: 策略研究者可以为回测绑定提示词模板、模型档位和策略版本
-- [x] **AI-02**: 策略研究者可以要求 AI 仅返回通过 Schema 校验的 JSON 决策对象
-- [x] **AI-03**: 策略研究者可以查看每个调仓周期的输入摘要、决策 JSON 和校验结果
-
-### Simulation
-
-- [x] **SIM-01**: 策略研究者可以根据 AI 的 `buy`、`sell`、`hold`、`reduce`、`add` 指令完成逐期仓位模拟
-- [x] **SIM-02**: 策略研究者可以配置初始资金、手续费、滑点和仓位上限
-- [x] **SIM-03**: 策略研究者可以查看每期持仓、现金、已实现或未实现盈亏和净值曲线
-
-### Reporting
-
-- [ ] **RPT-01**: 策略研究者可以获得包含夏普、最大回撤、收益分解和关键交易的 Markdown 报告
-- [ ] **RPT-02**: 策略研究者可以通过一次运行的工件目录追溯配置、快照、AI 决策、成交与报告
-
-### Quality
-
-- [ ] **QA-01**: 策略研究者可以运行自动校验，检查 Schema、点时点数据完整性和回测计算正确性
-- [ ] **QA-02**: 策略研究者可以在相同输入工件下重复运行，并得到一致结果或明确差异说明
-
-## v2 Requirements
-
-### Portfolio
-
-- **PORT-01**: 策略研究者可以对多个标的做组合级回测与绩效比较
-
-### Optimization
-
-- **OPT-01**: 策略研究者可以对不同提示词模板、模型档位和参数组合做批量对比
-
-### Live Integration
-
-- **LIVE-01**: 策略研究者可以把经过验证的策略接到仿真盘或实盘适配器
-
-### Interfaces
-
-- **WEB-01**: 策略研究者可以在 Web 界面中查看运行记录、报告和策略差异
-
-### Higher Frequency
-
-- **HF-01**: 策略研究者可以处理分钟级或更高频数据的快照与回测
-
-## Out of Scope
-
-| Feature | Reason |
-|---------|--------|
-| 实盘交易 | v1 先验证研究闭环和回测正确性 |
-| 分钟级或 tick 级回测 | 成本和复杂度显著上升，不适合作为第一阶段 |
-| Web 仪表盘 | 不是当前核心价值，CLI 足以承载验证闭环 |
-| 多标的组合优化 | 先聚焦单标的、单策略的点时点正确性 |
-
-## Traceability
-
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| ORCH-01 | Phase 1 | Complete |
-| ORCH-02 | Phase 1 | Complete |
-| DATA-01 | Phase 2 | Complete |
-| DATA-02 | Phase 2 | Complete |
-| DATA-03 | Phase 2 | Complete |
-| DATA-04 | Phase 2 | Complete |
-| AI-01 | Phase 3 | Complete |
-| AI-02 | Phase 3 | Complete |
-| AI-03 | Phase 3 | Complete |
-| SIM-01 | Phase 4 | Complete |
-| SIM-02 | Phase 4 | Complete |
-| SIM-03 | Phase 4 | Complete |
-| RPT-01 | Phase 5 | Pending |
-| RPT-02 | Phase 5 | Pending |
-| QA-01 | Phase 6 | Pending |
-| QA-02 | Phase 6 | Pending |
-
-**Coverage:**
-- v1 requirements: 16 total
-- Mapped to phases: 16
-- Unmapped: 0
+- RTK Token 节省统计
+- 同步顺序驱动的回测循环
+- 多标的组合回测
+- 运行结果 Web 浏览界面
 
 ---
-*Requirements defined: 2026-04-23*
-*Last updated: 2026-04-23 after Phase 04 completion*
+*Archive cutover: 2026-04-23*

@@ -23,7 +23,7 @@ Blocked snapshots must not be handed to `brain-node`.
 
 Validation results must be written to:
 
-`{artifact_root}/meta/validation.json`
+`{artifact_root}/meta/snapshot-validation.json`
 
 The record must include:
 
@@ -63,4 +63,4 @@ Block the snapshot when:
 - any `candle.date > asof_date`
 - the raw price series is missing required columns
 - the operator input cannot be normalized into the required snapshot shape
-- the validation record cannot be written to `meta/validation.json`
+- the validation record cannot be written to `meta/snapshot-validation.json`

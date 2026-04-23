@@ -16,7 +16,7 @@ Extended the run container metadata rules and defined snapshot validation behavi
 ## Verification
 
 - `meta/manual-inputs/` is explicitly part of the run container metadata subtree.
-- `meta/validation.json` stores validation results.
+- `meta/snapshot-validation.json` stores snapshot validation results.
 - `candle.date <= asof_date` is the blocking validation rule.
 - Cache reuse is only allowed when payloads and versioned parameters match.
 

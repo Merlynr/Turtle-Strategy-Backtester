@@ -1,3 +1,10 @@
+---
+phase: 04-backtest-simulation
+requirements_completed:
+  - SIM-01
+  - SIM-02
+  - SIM-03
+---
 # Phase 4 Summary
 
 ## Delivered
@@ -26,4 +33,3 @@
 ## Next Step
 
 - `/gsd-discuss-phase 5`
-

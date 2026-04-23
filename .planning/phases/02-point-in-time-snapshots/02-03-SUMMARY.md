@@ -17,7 +17,7 @@ Added operator-facing examples for manual snapshot input and the Phase 2 run tre
 
 - The example shows `prices.csv` and `snapshot_2026-04-23.json`.
 - The example includes a rejected post-dated candle.
-- The run tree example shows `meta/manual-inputs/` and `meta/validation.json`.
+- The run tree example shows `meta/manual-inputs/`, `meta/snapshot-validation.json`, and `meta/validation.json`.
 
 ## Notes
 

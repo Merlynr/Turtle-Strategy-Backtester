@@ -1,0 +1,93 @@
+{
+  "asof_date": "2026-04-23",
+  "cadence": "quarterly",
+  "key_trades": [
+    {
+      "cash_delta": "-99100",
+      "commission": "99",
+      "decision_action": "buy",
+      "execution_action": "add",
+      "execution_date": "2026-04-24",
+      "execution_price": "10",
+      "quantity": 9900,
+      "run_id": "run-001",
+      "slippage_cost": "99",
+      "symbol": "000001.SZ"
+    }
+  ],
+  "market": "CN-A",
+  "metrics": {
+    "annualized_return": "30.9410350067806380",
+    "final_nav": "104000",
+    "initial_nav": "100000",
+    "max_drawdown": "-0.0297029702970297",
+    "periods": 3,
+    "sharpe": "5.9030133759216280",
+    "total_return": "0.0400000000000000",
+    "volatility": "0.0372201815092201"
+  },
+  "report_index": {
+    "decision_paths": [
+      "__ARTIFACT_ROOT__/decisions"
+    ],
+    "execution_paths": [
+      "__ARTIFACT_ROOT__/execution"
+    ],
+    "manifest_path": "__ARTIFACT_ROOT__/manifest.json",
+    "report_index_path": "__ARTIFACT_ROOT__/reports/report-index.json",
+    "report_md_path": "__ARTIFACT_ROOT__/report.md",
+    "reports_paths": [
+      "__ARTIFACT_ROOT__/reports"
+    ],
+    "snapshot_paths": [
+      "__ARTIFACT_ROOT__/snapshots"
+    ],
+    "status_path": "__ARTIFACT_ROOT__/status.json"
+  },
+  "report_markdown": "# Run Report: run-001\n\n## Summary\n- Symbol: `000001.SZ`\n- Market: `CN-A`\n- Cadence: `quarterly`\n- As of: `2026-04-23`\n- Final NAV: `104000`\n- Total Return: `0.0400000000000000`\n- Max Drawdown: `-0.0297029702970297`\n- Sharpe: `5.9030133759216280`\n\n## Metrics\n| Metric | Value |\n|---|---:|\n| Periods | 3 |\n| Initial NAV | `100000` |\n| Final NAV | `104000` |\n| Total Return | `0.0400000000000000` |\n| Annualized Return | `30.9410350067806380` |\n| Max Drawdown | `-0.0297029702970297` |\n| Sharpe | `5.9030133759216280` |\n| Volatility | `0.0372201815092201` |\n\n## Key Trades\n| Execution Date | Decision | Execution | Qty | Price | Cash Delta |\n|---|---|---|---:|---:|---:|\n| 2026-04-24 | `buy` | `add` | 9900 | `10` | `-99100` |\n\n## Artifact Index\n- [manifest.json](__ARTIFACT_ROOT__/manifest.json)\n- [status.json](__ARTIFACT_ROOT__/status.json)\n- [snapshots/](__ARTIFACT_ROOT__/snapshots)\n- [decisions/](__ARTIFACT_ROOT__/decisions)\n- [execution/](__ARTIFACT_ROOT__/execution)\n- [reports/](__ARTIFACT_ROOT__/reports)\n\n## Notes\n- Metrics are derived only from execution artifacts inside this run container.\n- The report is deterministic for identical input artifacts.\n- Report regeneration does not mutate execution-side state.\n",
+  "run_id": "run-001",
+  "summary_lines": [
+    "# Run Report: run-001",
+    "",
+    "## Summary",
+    "- Symbol: `000001.SZ`",
+    "- Market: `CN-A`",
+    "- Cadence: `quarterly`",
+    "- As of: `2026-04-23`",
+    "- Final NAV: `104000`",
+    "- Total Return: `0.0400000000000000`",
+    "- Max Drawdown: `-0.0297029702970297`",
+    "- Sharpe: `5.9030133759216280`",
+    "",
+    "## Metrics",
+    "| Metric | Value |",
+    "|---|---:|",
+    "| Periods | 3 |",
+    "| Initial NAV | `100000` |",
+    "| Final NAV | `104000` |",
+    "| Total Return | `0.0400000000000000` |",
+    "| Annualized Return | `30.9410350067806380` |",
+    "| Max Drawdown | `-0.0297029702970297` |",
+    "| Sharpe | `5.9030133759216280` |",
+    "| Volatility | `0.0372201815092201` |",
+    "",
+    "## Key Trades",
+    "| Execution Date | Decision | Execution | Qty | Price | Cash Delta |",
+    "|---|---|---|---:|---:|---:|",
+    "| 2026-04-24 | `buy` | `add` | 9900 | `10` | `-99100` |",
+    "",
+    "## Artifact Index",
+    "- [manifest.json](__ARTIFACT_ROOT__/manifest.json)",
+    "- [status.json](__ARTIFACT_ROOT__/status.json)",
+    "- [snapshots/](__ARTIFACT_ROOT__/snapshots)",
+    "- [decisions/](__ARTIFACT_ROOT__/decisions)",
+    "- [execution/](__ARTIFACT_ROOT__/execution)",
+    "- [reports/](__ARTIFACT_ROOT__/reports)",
+    "",
+    "## Notes",
+    "- Metrics are derived only from execution artifacts inside this run container.",
+    "- The report is deterministic for identical input artifacts.",
+    "- Report regeneration does not mutate execution-side state."
+  ],
+  "symbol": "000001.SZ"
+}

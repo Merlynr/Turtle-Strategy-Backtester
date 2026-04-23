@@ -1,5 +1,8 @@
 ---
 phase: 01-run-contract
+requirements_completed:
+  - ORCH-01
+  - ORCH-02
 plan: 05
 subsystem: infra
 tags: [gap-closure, run-id, resume, replay, orchestrator]

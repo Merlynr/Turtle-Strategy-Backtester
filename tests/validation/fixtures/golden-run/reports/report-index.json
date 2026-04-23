@@ -1,0 +1,18 @@
+{
+  "decision_paths": [
+    "__ARTIFACT_ROOT__/decisions"
+  ],
+  "execution_paths": [
+    "__ARTIFACT_ROOT__/execution"
+  ],
+  "manifest_path": "__ARTIFACT_ROOT__/manifest.json",
+  "report_index_path": "__ARTIFACT_ROOT__/reports/report-index.json",
+  "report_md_path": "__ARTIFACT_ROOT__/report.md",
+  "reports_paths": [
+    "__ARTIFACT_ROOT__/reports"
+  ],
+  "snapshot_paths": [
+    "__ARTIFACT_ROOT__/snapshots"
+  ],
+  "status_path": "__ARTIFACT_ROOT__/status.json"
+}

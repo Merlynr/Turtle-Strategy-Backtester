@@ -75,6 +75,7 @@ Stores machine-readable metadata that supports auditing, provenance, and tooling
 
 - `meta/*.json`
 - `meta/manual-inputs/`
+- `meta/snapshot-validation.json`
 - `meta/validation.json`
 
 ## Layout Rules
@@ -84,5 +85,6 @@ Stores machine-readable metadata that supports auditing, provenance, and tooling
 - A resumed run reuses the same directory tree.
 - A replay operation reads from this directory tree without inventing alternate lookup paths.
 - `meta/manual-inputs/` stores raw operator-provided source payloads for Phase 2.
-- `meta/validation.json` stores point-in-time validation results for snapshots.
+- `meta/snapshot-validation.json` stores point-in-time validation results for snapshots.
+- `meta/validation.json` stores final quality-validation results for Phase 6.
 - `decisions/` retains both passed and blocked decision records so audit history stays complete and fail-closed outcomes remain inspectable.

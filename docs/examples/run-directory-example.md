@@ -18,6 +18,7 @@ runs/run-20260423-001_ma-cross-000001sz-qtr/
 └── meta/
     ├── manual-inputs/
     │   └── 2026-04-23-source-note.md
+    ├── snapshot-validation.json
     ├── validation.json
     └── sources.json
 ```
@@ -27,4 +28,4 @@ runs/run-20260423-001_ma-cross-000001sz-qtr/
 - The directory name keeps the unique `run_id` and a short human-readable summary.
 - `manifest.json`, `status.json`, and `report.md` stay at the top level for fast lookup.
 - `snapshots/`, `decisions/`, `execution/`, `reports/`, and `meta/` remain fixed even when future phases add more file types.
-- Raw operator input lives under `meta/manual-inputs/`; validation output lives in `meta/validation.json`.
+- Raw operator input lives under `meta/manual-inputs/`; Phase 2 validation output lives in `meta/snapshot-validation.json`; Phase 6 validation output lives in `meta/validation.json`.
