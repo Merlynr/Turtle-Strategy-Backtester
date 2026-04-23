@@ -2,7 +2,7 @@
 
 ## Canonical Container
 
-Each run owns one dedicated artifact container directory named with `run_id + 短业务摘要`.
+Each run owns one dedicated artifact container directory named with `run_id + short business summary`.
 
 The top level must contain exactly these files and directories:
 
@@ -72,6 +72,8 @@ Stores derived reports beyond the top-level summary report.
 Stores machine-readable metadata that supports auditing, provenance, and tooling.
 
 - `meta/*.json`
+- `meta/manual-inputs/`
+- `meta/validation.json`
 
 ## Layout Rules
 
@@ -79,3 +81,5 @@ Stores machine-readable metadata that supports auditing, provenance, and tooling
 - `artifact_root` in `manifest.json` points to this directory and nothing else.
 - A resumed run reuses the same directory tree.
 - A replay operation reads from this directory tree without inventing alternate lookup paths.
+- `meta/manual-inputs/` stores raw operator-provided source payloads for Phase 2.
+- `meta/validation.json` stores point-in-time validation results for snapshots.
