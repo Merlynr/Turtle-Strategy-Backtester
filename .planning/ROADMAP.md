@@ -48,6 +48,7 @@
 
 **Goal:** 把历史快照稳定地转换成结构化决策对象。  
 **Requirements:** AI-01, AI-02, AI-03  
+**Plans:** 1/1 plans complete  
 **Depends on:** Phase 2  
 **UI hint:** no
 

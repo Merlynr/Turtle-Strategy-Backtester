@@ -2,17 +2,17 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: 3
-current_plan: Not started
-status: planning
-stopped_at: Phase 2 execution complete
-last_updated: "2026-04-23T08:01:00.290Z"
+current_phase: 03
+current_plan: 1
+status: verifying
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-04-23T09:02:02.728Z"
 last_activity: 2026-04-23
 progress:
   total_phases: 6
-  completed_phases: 2
-  total_plans: 8
-  completed_plans: 8
+  completed_phases: 3
+  total_plans: 9
+  completed_plans: 9
   percent: 100
 ---
 
@@ -20,7 +20,7 @@ progress:
 
 **Initialized:** 2026-04-23
 **Current milestone:** M1 - single-symbol AI backtest loop
-**Current phase:** 3
+**Current phase:** 03
 **Next command:** /gsd-discuss-phase 3
 
 ## Project Reference
@@ -28,16 +28,19 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-23)
 
 **Core value:** every run must be reproducible from contemporaneous, point-in-time inputs and yield auditable AI decisions and backtest results.
-**Current focus:** Phase 2 is complete. We now move to Phase 3: AI decision contract and strategy brain.
+**Current focus:** Phase 03 — ai-decision-contract
 
 ## Current Position
 
+Phase: 03 (ai-decision-contract) — EXECUTING
+Plan: 1 of 1
+
 - **Phase:** 3 of 6
-- **Current Plan:** Not started
-- **Total Plans in Phase:** 0
-- **Status:** Ready to discuss
+- **Current Plan:** 1
+- **Total Plans in Phase:** 1
+- **Status:** Phase complete — ready for verification
 - **Last activity:** 2026-04-23
-- **Progress:** 100%
+- **Progress:** [██████████] 100%
 
 ## Performance Metrics
 
@@ -59,6 +62,8 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 - Last 5 plans: 5 min, 4 min, 3 min, 1 min, 2 min
 - Trend: Improving
 
+| Phase 03 P01 | 33min | 3 tasks | 7 files |
+
 ## Accumulated Context
 
 ### Decisions
@@ -68,6 +73,10 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 - Phase 2 established the manual point-in-time snapshot path as the primary v1 data input model.
 - Snapshot artifacts are normalized into the fixed run container and validated before any downstream AI decision step sees them.
 - `resume` continues the same `run_id`; `replay` reads an existing run without changing business identity.
+- Keep the model-facing payload minimal: action plus optional diagnostics only.
+- Persist blocked outputs as audit envelopes instead of repairing or promoting them.
+- Record prompt_version, schema_version, and model_label on every decision record.
+- Keep decision records under decisions/ so replay and audit remain localized to the run container.
 
 ### Blockers/Concerns
 
@@ -82,6 +91,6 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 
 ## Session Continuity
 
-- **Last session:** 2026-04-23 15:54
-- **Stopped at:** Phase 2 execution complete
-- **Resume file:** .planning/phases/03-ai-decision-contract/03-CONTEXT.md
+- **Last session:** 2026-04-23T09:02:02.728Z
+- **Stopped at:** Completed 03-01-PLAN.md
+- **Resume file:** None
