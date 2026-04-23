@@ -7,7 +7,7 @@
 
 ### Orchestration
 
-- [ ] **ORCH-01**: 策略研究者可以通过命令行指定 `symbol`、`start`、`end`、`cadence` 和 `strategy_profile` 启动一次回测
+- [ ] **ORCH-01**: 策略研究者可以通过 `backtest-orchestrator` 发起一次回测，并显式提供 `symbol`、`start`、`end`、`cadence` 和 `strategy_profile`；如果未来存在 CLI 或其他 wrapper，它必须委派到同一个总控 skill
 - [ ] **ORCH-02**: 策略研究者可以为一次回测生成唯一 `run_id`，并按 `run_id` 重放或复核该次运行
 
 ### Data
