@@ -74,3 +74,7 @@ Default node order:
 4. `report-node`
 
 The orchestrator may pause after any node, but it must preserve the same `run_id` and continue the same run on resume.
+
+## Operation Sequences
+
+See `docs/examples/run-operation-sequences.md` for the canonical `start new run`, `resume paused run`, and `replay existing run` sequences.
