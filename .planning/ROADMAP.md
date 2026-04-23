@@ -96,7 +96,7 @@
 
 ## Next Recommended Command
 
-`/gsd-discuss-phase 1`
+`/gsd-plan-phase 1 --gaps`
 
 ---
 *Roadmap created: 2026-04-23*
