@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docs/contracts/ai-decision-record.schema.json",
+  "title": "AI Decision Record v1",
+  "description": "Persistent audit record written under decisions/. It stores the validated decision or the blocked candidate, plus the validation outcome and versioning metadata.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "symbol",
+    "market",
+    "cadence",
+    "asof_date",
+    "prompt_version",
+    "schema_version",
+    "model_label",
+    "input_summary",
+    "decision",
+    "validation"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "market": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cadence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asof_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "prompt_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Version of the decision-output schema used to validate the model payload."
+    },
+    "model_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["snapshot_ref", "snapshot_hash"],
+      "properties": {
+        "snapshot_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshot_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary_text": {
+          "type": "string"
+        }
+      }
+    },
+    "decision": {
+      "description": "Validated executable decision when validation passes, or a blocked audit envelope that preserves the rejected model response.",
+      "oneOf": [
+        {
+          "$ref": "docs/contracts/ai-decision-output.schema.json"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "raw_output", "blocked_reason", "schema_violations"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "const": "blocked"
+            },
+            "raw_output": {
+              "description": "The rejected model response, retained for audit and replay inspection.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "blocked_reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schema_violations": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["passed", "blocked"]
+        },
+        "validated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

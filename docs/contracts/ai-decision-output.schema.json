@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docs/contracts/ai-decision-output.schema.json",
+  "title": "AI Decision Output v1",
+  "description": "Minimal executable payload emitted by brain-node. This is the only JSON shape the model may return on a successful pass.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["action"],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": ["buy", "sell", "hold"],
+      "description": "Minimal executable direction chosen by brain-node."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Optional non-binding confidence score for audit and diagnostics."
+    },
+    "signal_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Optional short diagnostic tags that do not change the executable meaning."
+    }
+  }
+}
