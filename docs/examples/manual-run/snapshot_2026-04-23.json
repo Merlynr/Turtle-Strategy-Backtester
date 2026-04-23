@@ -1,0 +1,18 @@
+{
+  "provider": "manual",
+  "symbol": "000001.SZ",
+  "market": "CN-A",
+  "cadence": "quarterly",
+  "asof_date": "2026-04-23",
+  "window_start": "2026-04-21",
+  "window_end": "2026-04-23",
+  "prices_csv_path": "runs/run-20260423-001_ma-cross-000001sz-qtr/snapshots/prices.csv",
+  "indicator_payload": {
+    "ma20": 10.18,
+    "rsi14": 62.4,
+    "atr14": 0.26
+  },
+  "notes": "Operator provided a bullish setup after earnings stabilization.",
+  "built_at": "2026-04-23T15:30:00+08:00",
+  "validation_status": "passed"
+}

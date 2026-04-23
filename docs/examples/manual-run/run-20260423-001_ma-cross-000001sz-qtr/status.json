@@ -1,0 +1,10 @@
+{
+  "run_id": "run-20260423-001_ma-cross-000001sz-qtr",
+  "phase": "01-run-contract",
+  "current_node": "orchestrator",
+  "state": "ready",
+  "last_completed_node": null,
+  "resume_from": "data-node",
+  "updated_at": "2026-04-23T11:35:00+08:00",
+  "error_summary": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run-20260423-001_ma-cross-000001sz-qtr",
+  "strategy": "ma-cross",
+  "symbol": "000001.SZ",
+  "market": "CN-A",
+  "start": "2020-01-01",
+  "end": "2023-12-31",
+  "cadence": "quarterly",
+  "entry_skill": "backtest-orchestrator",
+  "created_at": "2026-04-23T11:35:00+08:00",
+  "artifact_root": "runs/run-20260423-001_ma-cross-000001sz-qtr"
+}
