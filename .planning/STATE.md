@@ -2,48 +2,48 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: 2
-current_plan: Not planned yet
-status: ready_to_execute
-stopped_at: Phase 2 planning complete
-last_updated: "2026-04-23T15:54:36.1505058+08:00"
+current_phase: 3
+current_plan: Not started
+status: planning
+stopped_at: Phase 2 execution complete
+last_updated: "2026-04-23T08:01:00.290Z"
 last_activity: 2026-04-23
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 8
-  completed_plans: 5
-  percent: 63
+  completed_plans: 8
+  percent: 100
 ---
 
-# Project State: 榫熼緹绛栫暐
+# Project State: AI-driven quantitative backtest system
 
 **Initialized:** 2026-04-23
-**Current milestone:** M1 - 鍗曟爣鐨勫彲澶嶇幇 AI 鍥炴祴闂幆
-**Current phase:** 2
-**Next command:** /gsd-execute-phase 2
+**Current milestone:** M1 - single-symbol AI backtest loop
+**Current phase:** 3
+**Next command:** /gsd-discuss-phase 3
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-04-23)
 
-**Core value:** 鍦ㄤ换鎰忓巻鍙叉椂鐐癸紝绯荤粺閮借兘鍩轰簬褰撴椂鍙鐨勬暟鎹紝浜у嚭鍙牎楠屻€佸彲澶嶇幇銆佸彲鍥炴斁鐨?AI 鍐崇瓥涓庡洖娴嬬粨鏋溿€?  
-**Current focus:** Phase 02 planning complete; ready to execute the manual snapshot pipeline on top of the fixed run container and validation contracts
+**Core value:** every run must be reproducible from contemporaneous, point-in-time inputs and yield auditable AI decisions and backtest results.
+**Current focus:** Phase 2 is complete. We now move to Phase 3: AI decision contract and strategy brain.
 
 ## Current Position
 
-- **Phase:** 2 of 6 (鐐规椂鐐规暟鎹揩鐓х绾?
-- **Current Plan:** Not planned yet
-- **Total Plans in Phase:** 3
-- **Status:** Ready to execute
-- **Last activity:** 2026-04-23 - Phase 2 planning complete
-- **Progress:** [██████████████████████████████████████████████████] 63%
+- **Phase:** 3 of 6
+- **Current Plan:** Not started
+- **Total Plans in Phase:** 0
+- **Status:** Ready to discuss
+- **Last activity:** 2026-04-23
+- **Progress:** 100%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 5
+- Total plans completed: 8
 - Average duration: 3.0 min
 - Total execution time: 0.3 hours
 
@@ -52,6 +52,7 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01 | 5 | 15 min | 3.0 min |
+| 02 | 3 | 9 min | 3.0 min |
 
 **Recent Trend:**
 
@@ -62,24 +63,25 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 
 ### Decisions
 
-- Phase 01 keeps a single orchestrator skill with four node boundaries: data, brain, execution, and report.
-- One run equals one complete backtest; paused and partial states still belong to the same `run_id`.
-- The canonical artifact layout is the fixed run container for downstream writes.
-- `resume` means mutating the same run through `status.json.resume_from`; `replay` means reading an existing run without changing business identity.
-- Phase 01 completed with a skill-first entry contract and explicit start/lookup/resume/replay workflows owned by `backtest-orchestrator`.
+- Phase 1 established `backtest-orchestrator` as the single canonical entry and fixed the run container contract.
+- One `run` equals one complete backtest, even if it pauses and resumes later.
+- Phase 2 established the manual point-in-time snapshot path as the primary v1 data input model.
+- Snapshot artifacts are normalized into the fixed run container and validated before any downstream AI decision step sees them.
+- `resume` continues the same `run_id`; `replay` reads an existing run without changing business identity.
 
 ### Blockers/Concerns
 
-- Phase 2 should build on the existing run container instead of redefining snapshot paths or metadata locations.
+- Phase 3 should build on the manual snapshot contract instead of reintroducing external data-source dependencies.
+- AI outputs must stay schema-locked JSON so the downstream simulator can remain deterministic.
 
 ## Immediate Next Step
 
-1. Run `/gsd-execute-phase 2`.
-2. Implement the manual snapshot pipeline inside `snapshots/` and `meta/`.
-3. Keep `backtest-orchestrator` as the canonical entry while Phase 2 writes the `data-node` contract.
+1. Run `/gsd-discuss-phase 3`.
+2. Define the AI decision schema, prompt/version contract, and validation rules.
+3. Keep the Phase 2 snapshot contract as the only upstream input to the brain node.
 
 ## Session Continuity
 
 - **Last session:** 2026-04-23 15:54
-- **Stopped at:** Phase 2 planning complete
-- **Resume file:** .planning/phases/02-point-in-time-snapshots/02-CONTEXT.md
+- **Stopped at:** Phase 2 execution complete
+- **Resume file:** .planning/phases/03-ai-decision-contract/03-CONTEXT.md

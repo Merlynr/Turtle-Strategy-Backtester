@@ -12,10 +12,10 @@
 
 ### Data
 
-- [ ] **DATA-01**: 策略研究者可以在每个调仓时点获取对应标的的历史行情快照
-- [ ] **DATA-02**: 策略研究者可以在每个调仓时点获取“当时已披露”的财务或基本面快照
-- [ ] **DATA-03**: 策略研究者可以将标准化快照缓存到本地，并在重复运行时复用
-- [ ] **DATA-04**: 策略研究者可以查看每份快照的数据源、抓取时间、参数和版本信息
+- [x] **DATA-01**: 策略研究者可以在每个调仓时点获取对应标的的历史行情快照
+- [x] **DATA-02**: 策略研究者可以在每个调仓时点获取“当时已披露”的财务或基本面快照
+- [x] **DATA-03**: 策略研究者可以将标准化快照缓存到本地，并在重复运行时复用
+- [x] **DATA-04**: 策略研究者可以查看每份快照的数据源、抓取时间、参数和版本信息
 
 ### AI Decision
 
@@ -76,10 +76,10 @@
 |-------------|-------|--------|
 | ORCH-01 | Phase 1 | Complete |
 | ORCH-02 | Phase 1 | Complete |
-| DATA-01 | Phase 2 | Pending |
-| DATA-02 | Phase 2 | Pending |
-| DATA-03 | Phase 2 | Pending |
-| DATA-04 | Phase 2 | Pending |
+| DATA-01 | Phase 2 | Complete |
+| DATA-02 | Phase 2 | Complete |
+| DATA-03 | Phase 2 | Complete |
+| DATA-04 | Phase 2 | Complete |
 | AI-01 | Phase 3 | Pending |
 | AI-02 | Phase 3 | Pending |
 | AI-03 | Phase 3 | Pending |
