@@ -1,0 +1,68 @@
+{
+  "phase": "3",
+  "phase_name": "ai-decision-contract",
+  "timestamp": "2026-04-23T00:00:00.000Z",
+  "areas_completed": [
+    "Decision JSON",
+    "Fallback Behavior",
+    "Position Sizing",
+    "Versioning"
+  ],
+  "areas_remaining": [],
+  "decisions": {
+    "Decision JSON": [
+      {
+        "question": "How rich should the AI decision JSON be?",
+        "answer": "Minimal executable version",
+        "options_presented": [
+          "Minimal executable version",
+          "Audit-enhanced version",
+          "You decide"
+        ]
+      }
+    ],
+    "Fallback Behavior": [
+      {
+        "question": "What happens when the AI output is invalid or uncertain?",
+        "answer": "Strict fail closed",
+        "options_presented": [
+          "Strict fail closed",
+          "Block the whole run",
+          "Auto-repair then continue"
+        ]
+      }
+    ],
+    "Position Sizing": [
+      {
+        "question": "Should the AI decide position size?",
+        "answer": "Only direction",
+        "options_presented": [
+          "Only direction",
+          "Target weight",
+          "Hybrid"
+        ]
+      }
+    ],
+    "Versioning": [
+      {
+        "question": "How should prompt/schema/model versions be recorded?",
+        "answer": "Record prompt + schema + model label per run",
+        "options_presented": [
+          "Prompt + schema + model label per run",
+          "Only prompt + schema",
+          "Only strategy_profile"
+        ]
+      }
+    ]
+  },
+  "deferred_ideas": [],
+  "canonical_refs": [
+    "docs/contracts/run-artifact-layout.md",
+    "docs/contracts/run-start-contract.md",
+    "docs/contracts/skill-topology.md",
+    "docs/contracts/snapshot-validation.md",
+    "docs/contracts/point-in-time-snapshot.md",
+    ".agents/skills/backtest-orchestrator/SKILL.md",
+    ".agents/skills/data-node/SKILL.md"
+  ]
+}
