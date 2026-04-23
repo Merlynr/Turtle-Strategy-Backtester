@@ -4,6 +4,8 @@
 
 This contract separates `resume` from `replay` so later phases do not accidentally overwrite an old run when they only mean to inspect it.
 
+`docs/contracts/run-lookup-contract.md` is the required lookup stage before either operation begins.
+
 ## Resume
 
 `resume` means continuing an incomplete run.
@@ -18,6 +20,7 @@ Resume rules:
 
 ### Resume Preconditions
 
+- `run-lookup-contract.md` has been applied successfully
 - `manifest.json` exists and its `run_id` matches `status.json.run_id`
 - `status.json` exists
 - `status.json.state` is `paused`, `partial`, or an operator-approved recovery from `failed`
@@ -38,6 +41,7 @@ Replay rules:
 
 ### Replay Preconditions
 
+- `run-lookup-contract.md` has been applied successfully
 - `manifest.json` exists
 - `status.json` exists
 - `run_id` is internally consistent across required top-level files
@@ -55,6 +59,17 @@ Block the operation when any of these conditions are true:
 - Missing `resume_from` during `resume`
 - Attempting `resume` from `completed` without an explicit repair path
 - Attempting `replay` against a directory that is not the recorded artifact_root
+
+## State Operation Matrix
+
+| State | Resume | Replay | Detail |
+|-------|--------|--------|--------|
+| `ready` | Allowed | Blocked by default | Normal execution should continue forward, not replay |
+| `paused` | Allowed with `resume_from` | Allowed | Both operations use the same run_id after lookup |
+| `partial` | Allowed with `resume_from` | Allowed | Replay may inspect incomplete outputs without mutating identity |
+| `completed` | Blocked | Allowed | Completed runs are review-only unless a repair path exists |
+| `replay-ready` | Blocked | Allowed | Preferred steady state for read-only inspection |
+| `failed` | Allowed only with an explicit repair path and `resume_from` | Blocked by default | Prevents accidental reuse of a broken run without review |
 
 ## Decision Table
 
