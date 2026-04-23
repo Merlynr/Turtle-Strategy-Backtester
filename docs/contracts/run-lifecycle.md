@@ -15,7 +15,7 @@ The run boundary is business-facing rather than node-facing:
 
 | State | Meaning | Entered When | Exit Condition |
 |-------|---------|--------------|----------------|
-| `created` | Identity exists but execution has not started | The orchestrator allocates `run_id` and artifact root | Required inputs and metadata are persisted |
+| `created` | Identity exists but execution has not started | The orchestrator allocates `run_id` and `artifact_root` | Required inputs and metadata are persisted |
 | `ready` | Run can start or resume safely | Manifest and initial status files are valid | The orchestrator dispatches the next node |
 | `running` | A node is actively doing work for this run | A node starts processing | The node completes, pauses, or fails |
 | `paused` | Execution stopped intentionally and may continue later | The orchestrator or a node stops after persisting state | Resume is requested with the same run_id |
@@ -54,6 +54,14 @@ Resume never creates a second identity for the same business run.
 - Resume must continue from the last persisted node boundary.
 - Resume may update mutable execution fields in `status.json`.
 - Resume must not rewrite business identity fields recorded at creation time.
+
+## Consistency Invariants
+
+- run_id is immutable after creation.
+- manifest.json never changes business identity fields after creation.
+- status.json is mutable and tracks execution progress.
+- A resumed run reuses the same artifact_root.
+- replay-ready means all required top-level files exist.
 
 ## Lifecycle Ownership
 

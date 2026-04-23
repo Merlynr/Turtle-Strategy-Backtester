@@ -48,3 +48,11 @@
 - `manifest.json` is written at creation time before node execution begins.
 - Business identity fields are intended to remain stable for the life of the run.
 - Mutating execution state belongs in `status.json`, not in the manifest.
+
+## Invariants
+
+- run_id is immutable after creation.
+- manifest.json never changes business identity fields after creation.
+- status.json is mutable and tracks execution progress.
+- A resumed run reuses the same artifact_root.
+- replay-ready means all required top-level files exist.

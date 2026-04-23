@@ -45,3 +45,11 @@
 - A paused or partial run remains attached to the same run_id.
 - The file must always describe the latest known safe continuation point.
 - `error_summary` must be written before a run enters `failed`.
+
+## Invariants
+
+- run_id is immutable after creation.
+- manifest.json never changes business identity fields after creation.
+- status.json is mutable and tracks execution progress.
+- A resumed run reuses the same artifact_root.
+- replay-ready means all required top-level files exist.
