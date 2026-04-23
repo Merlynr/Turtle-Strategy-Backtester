@@ -2,7 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "docs/contracts/ai-decision-record.schema.json",
   "title": "AI Decision Record v1",
-  "description": "Persistent audit record written under decisions/. It stores the validated decision or the blocked candidate, plus the validation outcome and versioning metadata.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -45,8 +44,7 @@
     },
     "schema_version": {
       "type": "string",
-      "minLength": 1,
-      "description": "Version of the decision-output schema used to validate the model payload."
+      "minLength": 1
     },
     "model_label": {
       "type": "string",
@@ -71,47 +69,7 @@
       }
     },
     "decision": {
-      "description": "Validated executable decision when validation passes, or a blocked audit envelope that preserves the rejected model response.",
-      "oneOf": [
-        {
-          "$ref": "docs/contracts/ai-decision-output.schema.json"
-        },
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["status", "raw_output", "blocked_reason", "schema_violations"],
-          "properties": {
-            "status": {
-              "type": "string",
-              "const": "blocked"
-            },
-            "raw_output": {
-              "description": "The rejected model response, retained for audit and replay inspection.",
-              "oneOf": [
-                {
-                  "type": "object",
-                  "additionalProperties": true
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            },
-            "blocked_reason": {
-              "type": "string",
-              "minLength": 1
-            },
-            "schema_violations": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "minLength": 1
-              },
-              "minItems": 1
-            }
-          }
-        }
-      ]
+      "$ref": "docs/contracts/ai-decision-output.schema.json"
     },
     "validation": {
       "type": "object",
@@ -129,8 +87,7 @@
         "issues": {
           "type": "array",
           "items": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           }
         }
       }

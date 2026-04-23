@@ -11,7 +11,7 @@
 | # | Phase | Goal | Requirements | Success Criteria |
 |---|-------|------|--------------|------------------|
 | 1 | 项目脚手架与运行契约 | 建立总控 skill 入口、`run_id` 规则和工件目录结构 | ORCH-01, ORCH-02 | 3 |
-| 2 | 点时点数据快照管线 | 3/3 | Complete    | 2026-04-23 |
+| 2 | 点时点数据快照管线 | 构建点时点数据快照与缓存校验 | DATA-01, DATA-02, DATA-03, DATA-04 | 4 |
 | 3 | AI 决策契约与策略大脑 | 建立提示词版本化、Gemini 调用与 JSON 校验 | AI-01, AI-02, AI-03 | 4 |
 | 4 | 回测仿真内核 | 建立调仓执行、资金账本和净值计算 | SIM-01, SIM-02, SIM-03 | 4 |
 | 5 | 报告与可追溯复盘 | 建立报告生成、运行索引与工件回放 | RPT-01, RPT-02 | 3 |
@@ -48,7 +48,7 @@
 
 **Goal:** 把历史快照稳定地转换成结构化决策对象。  
 **Requirements:** AI-01, AI-02, AI-03  
-**Plans:** 1/1 plans complete  
+**Status:** Complete  
 **Depends on:** Phase 2  
 **UI hint:** no
 
@@ -62,8 +62,13 @@
 
 **Goal:** 用显式交易和资金假设驱动净值变化。  
 **Requirements:** SIM-01, SIM-02, SIM-03  
+**Status:** Complete  
 **Depends on:** Phase 3  
 **UI hint:** no
+**Plans:** 1 plan
+
+Plans:
+- [x] 04-01-PLAN.md — 实现执行核心、工件持久化与可审计的净值输出
 
 **Success criteria**
 1. 系统能解释 `buy`、`sell`、`hold`、`reduce`、`add` 指令。
@@ -97,7 +102,7 @@
 
 ## Next Recommended Command
 
-`/gsd-discuss-phase 2`
+`/gsd-discuss-phase 5`
 
 ---
 *Roadmap created: 2026-04-23*

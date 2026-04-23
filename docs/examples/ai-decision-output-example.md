@@ -1,35 +1,26 @@
 # AI Decision Output Example
 
-This example shows the only payload shape the model is allowed to emit on a successful pass.
-
-## Valid Payload
+## Valid Output
 
 ```json
 {
   "action": "buy",
   "confidence": 0.74,
-  "signal_tags": ["trend-confirmation", "earnings-momentum"]
+  "signal_tags": [
+    "trend-confirmed",
+    "volume-support"
+  ]
 }
 ```
 
-This is schema-valid because:
-
-- `action` is present
-- `action` is one of `buy`, `sell`, or `hold`
-- optional diagnostics stay inside the allowed bounds
-
-## Invalid Payload Rejected By Validation
+## Invalid Output
 
 ```json
 {
-  "action": "add",
+  "action": "buy",
   "confidence": 1.2,
-  "signal_tags": ["oversized"]
+  "notes": "increase size because momentum looks strong"
 }
 ```
 
-This payload must be blocked because:
-
-- `action` is outside the allowed enum
-- `confidence` exceeds the maximum of `1`
-- the invalid payload must not be repaired into a valid trade instruction
+This invalid payload would be blocked because `confidence` is out of range and `notes` is not part of the schema.

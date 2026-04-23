@@ -23,12 +23,15 @@ At any historical timestamp, the system should be able to produce verifiable AI 
 - Phase 2 validated the manual point-in-time snapshot model for v1.
 - Phase 2 validated that snapshots are normalized from manual operator input and blocked if they violate point-in-time rules.
 - Phase 2 validated the fixed metadata subtree for raw manual inputs and validation records.
+- Phase 3 validated the AI decision protocol, versioned prompt contract, and schema-locked JSON decision boundary.
+- Phase 3 validated fail-closed decision handling and auditable decision records under `decisions/`.
+- Phase 4 validated deterministic next-open execution, lot-aware sizing, explicit run-scoped costs, and auditable execution artifacts.
 
 ## Active
 
-- Define the AI decision schema and versioned prompt contract.
-- Require AI output to be schema-locked JSON only.
-- Keep simulator inputs and outputs fully auditable per run.
+- Prepare Phase 5 reporting contracts that consume execution artifacts only.
+- Keep report generation derived from execution outputs without mutating execution-side state.
+- Preserve strict separation between execution and reporting boundaries.
 
 ## Out of Scope for v1
 
@@ -43,6 +46,7 @@ At any historical timestamp, the system should be able to produce verifiable AI 
 - Phase 1 also established the `start / resume / replay` lifecycle and the fixed run container.
 - Phase 2 made manual point-in-time snapshots the primary v1 input path, which means the project does not require external data-source credentials to begin with.
 - The intended user flow is a researcher manually supplying stock information, indicators, and candles, then receiving a structured buy/sell decision that is stored locally and reused for backtesting.
+- Phase 4 added deterministic next-open simulation, lot-aware sizing, and run-scoped execution persistence.
 
 ## Constraints
 
@@ -61,6 +65,7 @@ At any historical timestamp, the system should be able to produce verifiable AI 
 | Require schema-validated AI JSON decisions | Reduces prompt drift and makes execution deterministic | Accepted |
 | Store run artifacts in a fixed local layout | Preserves replayability and auditability | Accepted |
 | Start with a single-symbol closed loop | Validates the core value before widening scope | Accepted |
+| Use explicit execution costs and lot-aware sizing for Phase 4 | Keeps the simulation deterministic and replayable | Accepted |
 
 ## Evolution
 
@@ -75,4 +80,4 @@ After each phase transition:
 5. confirm the Core Value still matches the project goal
 
 ---
-*Last updated: 2026-04-23 after Phase 02 completion*
+*Last updated: 2026-04-23 after Phase 04 completion*

@@ -1,3 +1,8 @@
+---
+name: execution-node
+description: Apply decisions to the current run-state and ledger model.
+---
+
 # execution-node
 
 ## Single Responsibility

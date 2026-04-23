@@ -1,3 +1,8 @@
+---
+name: report-node
+description: Generate report and summary artifacts from completed execution outputs.
+---
+
 # report-node
 
 ## Single Responsibility

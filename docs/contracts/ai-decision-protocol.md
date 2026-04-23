@@ -2,74 +2,77 @@
 
 ## Purpose
 
-Phase 3 converts the normalized Phase 2 snapshot into a small, replayable decision contract. The goal is not to make the model freer or richer. The goal is to make the output harder to misuse.
+This protocol defines how `brain-node` converts a normalized point-in-time snapshot into a replayable AI decision record.
 
-## Contract Split
+The protocol is split into two layers:
 
-The protocol has two distinct JSON surfaces:
+- `ai-decision-output.schema.json` for the model's live output
+- `ai-decision-record.schema.json` for the persisted audit record
 
-- `ai-decision-output.schema.json`: the model-facing payload
-- `ai-decision-record.schema.json`: the persisted audit record written under `decisions/`
+## Live Model Output
 
-The model may only return the output payload. The orchestrator writes the audit record after validation.
+The model is only allowed to emit the minimal executable decision payload.
 
-## Model Output
-
-The model output is intentionally minimal:
+Rules:
 
 - `action` is required
-- valid values are `buy`, `sell`, and `hold`
-- `confidence` and `signal_tags` are optional diagnostics only
+- `action` must be one of `buy`, `sell`, or `hold`
+- extra fields are rejected by schema validation unless explicitly added to the output schema
+- the output must remain free of execution logic, ledger fields, or narrative prose
 
-No position sizing, execution routing, or reporting fields belong in the model output. Those responsibilities stay outside `brain-node`.
+## Persisted Audit Record
 
-## Audit Record
+The orchestrator writes a durable record after validation.
 
-Each decision cycle must persist a record with:
+Required record fields:
 
-- run identity: `run_id`, `symbol`, `market`, `cadence`, `asof_date`
-- versioning metadata: `prompt_version`, `schema_version`, `model_label`
-- input audit: `input_summary`
-- decision payload: `decision`
-- validation result: `validation`
+- `run_id`
+- `symbol`
+- `market`
+- `cadence`
+- `asof_date`
+- `prompt_version`
+- `schema_version`
+- `model_label`
+- `input_summary`
+- `decision`
+- `validation`
 
-`schema_version` identifies the decision-output schema version used for validation. `prompt_version` identifies the prompt template version. `model_label` records the concrete model identifier used for the run.
+`input_summary` ties the decision back to the normalized snapshot. `decision` stores the validated model payload. `validation` stores the result of schema checking and the blocked or passed outcome.
 
 ## Fail Closed
 
-Validation must fail closed.
-
-If the model output is missing required fields, contains unsupported values, cannot be parsed, or otherwise fails schema validation, the system must not coerce it into an executable action. The blocked response is retained as an audit artifact, but it remains blocked.
+Invalid or uncertain output must fail closed.
 
 That means:
 
-- no silent repair
-- no automatic fallback to a different action
-- no promotion of invalid output into a valid decision
+- invalid JSON is blocked
+- schema violations are blocked
+- ambiguous or unparseable content is blocked
+- blocked decisions are retained for audit but must not be promoted to execution
 
-## Replayability
+No auto-repair path is allowed in v1.
 
-Replayability depends on freezing the decision context at the time of generation.
+## Versioning Rules
 
-The persisted record must preserve:
+Every persisted decision record must record:
 
-- the exact snapshot reference and hash used as input
-- the prompt version
-- the schema version
-- the model label
+- `prompt_version`
+- `schema_version`
+- `model_label`
 
-Those fields allow a later reviewer to understand what the model saw, what contract it was held to, and why a record passed or blocked.
+These three values are part of the replay contract. A later run can only be considered equivalent if the same snapshot, prompt version, schema version, and model label are available.
 
-## Storage Rule
+## Storage Location
 
 Decision records live under:
 
 `{artifact_root}/decisions/`
 
-Blocked validations stay in the same audit subtree. They are not rewritten into a clean executable result, and they are not moved to a side channel.
+Both passed and blocked records are retained there so the audit trail remains complete.
 
 ## Phase Boundary
 
-This protocol ends at the decision boundary.
+Phase 3 owns decision contract definition only.
 
-Phase 3 defines the schema-checked decision contract. Phase 4 may consume the persisted decision record, but it must not reinterpret the meaning of the fields or widen the contract.
+Phase 4 consumes the decision record and applies execution rules. Phase 3 does not decide position sizing, execution timing, or ledger mutation.

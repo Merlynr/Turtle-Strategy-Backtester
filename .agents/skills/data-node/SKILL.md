@@ -1,3 +1,8 @@
+---
+name: data-node
+description: Build point-in-time snapshots for a run.
+---
+
 # data-node
 
 ## Single Responsibility

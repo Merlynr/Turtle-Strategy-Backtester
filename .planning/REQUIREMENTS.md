@@ -19,18 +19,15 @@
 
 ### AI Decision
 
-- [x] **AI-01
-**: 策略研究者可以为回测绑定提示词模板、模型档位和策略版本
-- [x] **AI-02
-**: 策略研究者可以要求 AI 仅返回通过 Schema 校验的 JSON 决策对象
-- [x] **AI-03
-**: 策略研究者可以查看每个调仓周期的输入摘要、决策 JSON 和校验结果
+- [x] **AI-01**: 策略研究者可以为回测绑定提示词模板、模型档位和策略版本
+- [x] **AI-02**: 策略研究者可以要求 AI 仅返回通过 Schema 校验的 JSON 决策对象
+- [x] **AI-03**: 策略研究者可以查看每个调仓周期的输入摘要、决策 JSON 和校验结果
 
 ### Simulation
 
-- [ ] **SIM-01**: 策略研究者可以根据 AI 的 `buy`、`sell`、`hold`、`reduce`、`add` 指令完成逐期仓位模拟
-- [ ] **SIM-02**: 策略研究者可以配置初始资金、手续费、滑点和仓位上限
-- [ ] **SIM-03**: 策略研究者可以查看每期持仓、现金、已实现或未实现盈亏和净值曲线
+- [x] **SIM-01**: 策略研究者可以根据 AI 的 `buy`、`sell`、`hold`、`reduce`、`add` 指令完成逐期仓位模拟
+- [x] **SIM-02**: 策略研究者可以配置初始资金、手续费、滑点和仓位上限
+- [x] **SIM-03**: 策略研究者可以查看每期持仓、现金、已实现或未实现盈亏和净值曲线
 
 ### Reporting
 
@@ -83,12 +80,12 @@
 | DATA-02 | Phase 2 | Complete |
 | DATA-03 | Phase 2 | Complete |
 | DATA-04 | Phase 2 | Complete |
-| AI-01 | Phase 3 | Pending |
-| AI-02 | Phase 3 | Pending |
-| AI-03 | Phase 3 | Pending |
-| SIM-01 | Phase 4 | Pending |
-| SIM-02 | Phase 4 | Pending |
-| SIM-03 | Phase 4 | Pending |
+| AI-01 | Phase 3 | Complete |
+| AI-02 | Phase 3 | Complete |
+| AI-03 | Phase 3 | Complete |
+| SIM-01 | Phase 4 | Complete |
+| SIM-02 | Phase 4 | Complete |
+| SIM-03 | Phase 4 | Complete |
 | RPT-01 | Phase 5 | Pending |
 | RPT-02 | Phase 5 | Pending |
 | QA-01 | Phase 6 | Pending |
@@ -101,4 +98,4 @@
 
 ---
 *Requirements defined: 2026-04-23*
-*Last updated: 2026-04-23 after Phase 01 completion*
+*Last updated: 2026-04-23 after Phase 04 completion*

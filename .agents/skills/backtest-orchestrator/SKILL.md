@@ -1,3 +1,7 @@
+---
+name: backtest-orchestrator
+description: The single entry skill for a backtest run. A pure orchestrator for the Turtle Strategy Backtester.
+---
 # backtest-orchestrator
 
 ## Role
