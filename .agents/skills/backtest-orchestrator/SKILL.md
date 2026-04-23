@@ -20,6 +20,7 @@ It never performs strategy analysis, market data interpretation, execution math,
 
 - normalize entry arguments for a run
 - allocate or resolve `run_id`
+- derive `artifact_root`
 - select next node based on lifecycle state
 - persist orchestration progress into run metadata
 - stop, resume, or replay the same run using the same identity
@@ -33,11 +34,11 @@ It never performs strategy analysis, market data interpretation, execution math,
 
 ## Inputs
 
-- strategy profile
+- strategy_profile
 - symbol
 - market
-- start date
-- end date
+- start
+- end
 - cadence
 - optional `run_id`
 - optional execution stop point
@@ -45,9 +46,23 @@ It never performs strategy analysis, market data interpretation, execution math,
 ## Outputs
 
 - resolved run context
+- resolved `artifact_root`
 - node dispatch order
 - updated orchestration state
 - final run completion status
+
+## Run Start Workflow
+
+When the operation is `start`, the orchestrator follows this order:
+
+1. validate `symbol`, `start`, `end`, `cadence`, and `strategy_profile`
+2. generate a unique `run_id`
+3. derive `artifact_root` from the run identity
+4. create the fixed run container
+5. write initial `manifest.json`
+6. write initial `status.json`
+7. transition the run from `created` to `ready`
+8. dispatch the ready run to `data-node`
 
 ## Dispatch Contract
 
