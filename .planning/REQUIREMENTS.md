@@ -7,8 +7,8 @@
 
 ### Orchestration
 
-- [ ] **ORCH-01**: 策略研究者可以通过 `backtest-orchestrator` 发起一次回测，并显式提供 `symbol`、`start`、`end`、`cadence` 和 `strategy_profile`；如果未来存在 CLI 或其他 wrapper，它必须委派到同一个总控 skill
-- [ ] **ORCH-02**: 策略研究者可以为一次回测生成唯一 `run_id`，并按 `run_id` 重放或复核该次运行
+- [x] **ORCH-01**: 策略研究者可以通过 `backtest-orchestrator` 发起一次回测，并显式提供 `symbol`、`start`、`end`、`cadence` 和 `strategy_profile`；如果未来存在 CLI 或其他 wrapper，它必须委派到同一个总控 skill
+- [x] **ORCH-02**: 策略研究者可以为一次回测生成唯一 `run_id`，并按 `run_id` 重放或复核该次运行
 
 ### Data
 
@@ -74,8 +74,8 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ORCH-01 | Phase 1 | Pending |
-| ORCH-02 | Phase 1 | Pending |
+| ORCH-01 | Phase 1 | Complete |
+| ORCH-02 | Phase 1 | Complete |
 | DATA-01 | Phase 2 | Pending |
 | DATA-02 | Phase 2 | Pending |
 | DATA-03 | Phase 2 | Pending |
@@ -98,4 +98,4 @@
 
 ---
 *Requirements defined: 2026-04-23*
-*Last updated: 2026-04-23 after initial definition*
+*Last updated: 2026-04-23 after Phase 01 completion*

@@ -12,11 +12,11 @@
 
 ### Validated
 
-(None yet - ship to validate)
+- [x] Phase 1 validated `backtest-orchestrator` as the canonical entry for starting, resuming, and replaying runs
+- [x] Phase 1 validated the run contract around `run_id`, `artifact_root`, `manifest.json`, `status.json`, and the fixed run container
 
 ### Active
 
-- [ ] 通过 `backtest-orchestrator` 发起一次完整的 AI 回测运行，必要时允许由从属 wrapper 代为转发
 - [ ] 用点时点数据快照约束 AI 输入，避免未来函数
 - [ ] 用结构化 JSON 决策驱动回测执行与报告
 - [ ] 为每次运行保留完整工件，支持重放与对比
@@ -77,4 +77,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Refresh Context with the latest architecture, users, and validation learnings.
 
 ---
-*Last updated: 2026-04-23 after Phase 01 gap closure entry alignment*
+*Last updated: 2026-04-23 after Phase 01 completion*
