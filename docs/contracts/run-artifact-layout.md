@@ -48,9 +48,11 @@ Stores point-in-time data artifacts that feed decision making.
 
 ### `decisions/`
 
-Stores structured AI decision outputs and their validation results.
+Stores versioned AI decision records and their validation results.
 
 - `decisions/*.json`
+
+Each file captures the input summary, the validated decision or blocked audit envelope, and the versioning trio used for replay.
 
 ### `execution/`
 
@@ -83,3 +85,4 @@ Stores machine-readable metadata that supports auditing, provenance, and tooling
 - A replay operation reads from this directory tree without inventing alternate lookup paths.
 - `meta/manual-inputs/` stores raw operator-provided source payloads for Phase 2.
 - `meta/validation.json` stores point-in-time validation results for snapshots.
+- `decisions/` retains both passed and blocked decision records so audit history stays complete and fail-closed outcomes remain inspectable.

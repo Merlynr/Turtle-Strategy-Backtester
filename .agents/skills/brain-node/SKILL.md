@@ -1,3 +1,8 @@
+---
+name: brain-node
+description: Convert snapshots into schema-validated JSON decisions.
+---
+
 # brain-node
 
 ## Single Responsibility
@@ -17,14 +22,16 @@ This node owns decision generation only.
 - run context
 - normalized snapshot payload
 - prompt profile
-- schema contract
+- schema contract for the decision-output JSON
+- decision-record contract used by the orchestrator for audit persistence
 
 ## Outputs
 
-- validated JSON decision object
+- schema-validated JSON decision object
 - decision validation result
-- decision generation metadata
+- decision-record metadata needed to persist the audit record separately
 
 ## Notes
 
 `brain-node` must return schema-safe JSON, not free-form execution text.
+If validation fails, the output stays blocked and the rejected payload is preserved only as audit data in the decision record.
