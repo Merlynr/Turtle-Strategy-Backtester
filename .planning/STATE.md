@@ -3,14 +3,17 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 current_phase: 01
-status: gaps_found
-last_updated: "2026-04-23T03:45:00.000Z"
+current_plan: 4 of 5
+status: ready_to_execute
+stopped_at: Planned Phase 01 gap closure into 01-04 and 01-05
+last_updated: "2026-04-23T04:12:00.000Z"
+last_activity: 2026-04-23
 progress:
   total_phases: 6
   completed_phases: 0
-  total_plans: 3
+  total_plans: 5
   completed_plans: 3
-  percent: 100
+  percent: 60
 ---
 
 # Project State: 龟龟策略
@@ -18,27 +21,28 @@ progress:
 **Initialized:** 2026-04-23
 **Current milestone:** M1 - 单标的可复现 AI 回测闭环
 **Current phase:** 01
-**Next command:** /gsd-plan-phase 1 --gaps
+**Next command:** /gsd-execute-phase 1 --gaps-only
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-04-23)
 
 **Core value:** 在任意历史时点，系统都能基于当时可见的数据，产出可校验、可复现、可回放的 AI 决策与回测结果。  
-**Current focus:** Phase 01 gap closure after contract execution finished but CLI/run operations remain unsatisfied
+**Current focus:** Phase 01 gap plans are ready to close the skill-entry and run-operation blockers
 
 ## Current Position
 
 - **Phase:** 1 of 6 (项目脚手架与运行契约)
-- **Current Plan:** 3 of 3
-- **Total Plans in Phase:** 3
-- **Status:** Verification found gaps
-- **Last activity:** 2026-04-23 - Phase verification confirmed all contract artifacts exist, but `ORCH-01` and `ORCH-02` are still blocked by missing executable entry and run operations.
-- **Progress:** [██████████] 100%
+- **Current Plan:** 4 of 5
+- **Total Plans in Phase:** 5
+- **Status:** Ready to execute gap closure
+- **Last activity:** 2026-04-23 - Added `01-04` and `01-05` to close the entry-surface and run-operation verification gaps.
+- **Progress:** [██████░░░░] 60%
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 3
 - Average duration: 4.0 min
 - Total execution time: 0.2 hours
@@ -50,6 +54,7 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 | 01 | 3 | 12 min | 4.0 min |
 
 **Recent Trend:**
+
 - Last 5 plans: 5 min, 4 min, 3 min
 - Trend: Stable
 
@@ -65,17 +70,17 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 ### Blockers/Concerns
 
 - Downstream phases must write outputs into the fixed run container defined by the artifact layout contract instead of inventing ad hoc phase-specific paths.
-- Phase 01 currently defines contracts only. The user-facing CLI entry and real run creation flow promised by `ORCH-01` are not implemented yet.
-- `ORCH-02` is still blocked because `run_id` creation, lookup, resume, and replay remain documented semantics rather than executable operations.
+- `01-04` must reconcile project docs with the chosen skill-first entry path before Phase 1 can be re-verified honestly.
+- `01-05` must convert `run_id`, `artifact_root`, resume, and replay into executable skill workflows before `ORCH-02` can pass verification.
 
 ## Immediate Next Step
 
-1. Run `/gsd-plan-phase 1 --gaps` to close the verification gaps captured in `01-VERIFICATION.md`.
-2. Decide whether Phase 1 should stay CLI-first or be formally re-scoped to a skill-first entry surface.
-3. Keep Phase 2 outputs inside the canonical artifact layout only after Phase 1 gap closure resolves run creation and run lookup semantics.
+1. Run `/gsd-execute-phase 1 --gaps-only` to execute `01-04` and `01-05`.
+2. Re-run phase verification after gap execution to confirm `ORCH-01` and `ORCH-02` are no longer blocked.
+3. Keep Phase 2 outputs inside the canonical artifact layout after the gap closure execution locks in the new entry and run-operation baselines.
 
 ## Session Continuity
 
-- **Last session:** 2026-04-23 11:45
-- **Stopped at:** Completed all Phase 01 plans and recorded verification gaps for follow-up
+- **Last session:** 2026-04-23 12:12
+- **Stopped at:** Planned Phase 01 gap closure into `01-04` and `01-05`
 - **Resume file:** None
